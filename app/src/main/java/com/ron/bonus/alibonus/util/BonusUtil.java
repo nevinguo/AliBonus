@@ -12,6 +12,9 @@ public class BonusUtil {
     public static String getSystemClipText(Context context){
         final android.content.ClipboardManager clipboardManager = (ClipboardManager)context.getSystemService(CLIPBOARD_SERVICE);
         ClipData clipData = clipboardManager.getPrimaryClip();
+        if(null==clipData){
+            return null;
+        }
         int itemCount = clipData.getItemCount();
         if(itemCount > 0) {
             // Get source text.
